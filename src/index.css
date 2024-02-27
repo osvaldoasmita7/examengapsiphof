@@ -1,0 +1,31 @@
+.gapsy > .header {
+  background-color: #f6f6f6;
+}
+
+.gapsy > .body {
+  /* background-color: #ffffff; */
+}
+
+.gapsy {
+  color: #8a8a8a;
+}
+.gapsy > .card {
+  border: 0px #dddddd solid !important;
+  border-radius: 0px;
+  box-shadow: #dddddd 0px 10px 40px;
+}
+.version-card {
+  background-color: transparent;
+  border-bottom: 1px #dddddd solid !important;
+  border-radius: 0px;
+  box-shadow: #dddddd 30px 30px 90px;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.btn-primary {
+  border: 0px #0099cb solid !important;
+  background-color: #0099cb !important;
+}
