@@ -2,7 +2,7 @@
 
 Bienvenidos a mi proyecto.
 
-# ReactJs + TypeScript + Vite
+# ReactJs + TypeScript + Vite + Bootstrap
 
 # Paso 1: npm install
 
