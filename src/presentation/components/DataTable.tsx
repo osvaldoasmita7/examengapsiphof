@@ -28,6 +28,7 @@ export const DataTableProvider = ({
         field: "actions",
         type: "actions",
         width: 80,
+        // Se añade la acción de eliminar a la tabla
         getActions: (params: iProvider) => [
           <GridActionsCellItem
             icon={<DeleteIcon />}

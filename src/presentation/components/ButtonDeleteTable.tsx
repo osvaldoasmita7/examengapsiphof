@@ -6,7 +6,6 @@ interface Props {
 export const ButtonDeleteTable = ({ id, deleteProvider }: Props) => {
   return (
     <div>
-      {" "}
       <Link
         to="#"
         className="text-danger me-3"

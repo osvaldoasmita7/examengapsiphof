@@ -1,3 +1,6 @@
+/**
+ * Patrón utilizado: Singleton
+ */
 export const columns = [
   { field: "name", headerName: "Nombre", sortable: false, width: 200 },
   {

@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
 import { CardGapsi } from "../components/CardGapsi";
-import { iProvider } from "../../interfaces/Providers";
 import { deleteProvidersUseCase } from "../../core";
 import Swal from "sweetalert2";
 import { DataTableProvider } from "../components/DataTable";
@@ -9,16 +8,20 @@ import { columns } from "../constants";
 import { useProvider } from "../../core/hooks/useProvider";
 
 export const ListPage = () => {
-  const { getProviders } = useProvider();
-  const [providers, setProviders] = useState<iProvider[]>([]);
+  // Traemos la función de traer proveedores de nuestro hook
+  const { getProviders, providers } = useProvider();
+
+  // Cargando
   const [loading, setLoading] = useState(false);
 
+  //Función que trae los proveedores
   const getDataProviders = useCallback(async () => {
     setLoading(true);
-    setProviders(await getProviders());
+    await getProviders();
     setLoading(false);
   }, [getProviders]);
 
+  // Función que confirma la eliminación del proveedor
   const confirmDeleteProvider = async (id: string) => {
     Swal.fire({
       title: `¿Quieres eliminar el registro con el id ${id} ?`,
@@ -30,21 +33,25 @@ export const ListPage = () => {
       confirmButtonText: "Si, dale!",
       cancelButtonText: "NO!",
     }).then(async (result) => {
+      // si se confirma
       if (result.isConfirmed) {
         setLoading(true);
+        // Eliminamos el proveedor
         const { ok, message } = await deleteProvidersUseCase(id);
+        // Mandamos mensaje de lo que ocurrió al usuario
         Swal.fire({
           title: ok ? "¡Eliminado!" : "Ocurrió un problema",
           text: message,
           icon: ok ? "success" : "error",
         });
         setLoading(false);
-
+        // Traemos nuevamente los proveedores
         await getDataProviders();
       }
     });
   };
 
+  // Cuando el componente se monta se trae los proveedores
   useEffect(() => {
     getDataProviders();
   }, [getDataProviders]);
@@ -52,6 +59,7 @@ export const ListPage = () => {
   return (
     <>
       <CardGapsi titlePage="e-Commerce Gapsi" title="Lista de proveedores">
+        {/* Si está cargando muestra spinner si no, la tabla */}
         {loading ? (
           <SpinerReact></SpinerReact>
         ) : (

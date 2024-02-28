@@ -9,14 +9,22 @@ interface Props {
   titlePage: string;
 }
 export const CardGapsi = ({ children, title, titlePage }: Props) => {
+  // manejo de versión
   const [version, setVersion] = useState("0.0.0");
+  // Función que trae la versión
   const getVersion = useCallback(async () => {
+    // Se manda a traer la versión
     const respVersion = await getVersionUseCase();
+    // Se setea la versión
     setVersion(respVersion.version);
   }, []);
+
+  // Cuando el componente se crea
   useEffect(() => {
+    // Se trae la versión
     getVersion();
   }, [getVersion]);
+
   return (
     <div className="row mt-5 	fade-in">
       <div className="col-11 col-md-8 col-md-10 col-lg-5 mx-auto">
@@ -24,7 +32,7 @@ export const CardGapsi = ({ children, title, titlePage }: Props) => {
           <div className="card gapsi">
             <div className="header ps-4 py-3 col-12">
               <div className="row">
-                <div className="col-11">
+                <div className="col-10">
                   <h3 className="color-gray motion-safe:animate-spin">
                     {titlePage}
                   </h3>

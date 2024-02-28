@@ -1,3 +1,7 @@
+/**
+ * Patrón utilizado: Singleton
+ */
+// Configuración de tabla
 export const locateES = {
   // Root
   noRowsLabel: "Sin registros",
