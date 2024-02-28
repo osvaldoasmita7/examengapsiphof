@@ -1,8 +1,13 @@
+import { ReactElement } from "react";
+
 export interface iProvider {
   id?: number;
   name: string;
   bussinessName: string;
   address: string;
+}
+export interface iProviderTable extends iProvider {
+  deleteAction: ReactElement;
 }
 
 export interface ProviderResponse {

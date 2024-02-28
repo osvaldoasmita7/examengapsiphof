@@ -1,0 +1,10 @@
+.button-dopdown {
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  border: 0px white !important;
+  background-color: transparent;
+}
+.dropdown-item :selected {
+  background: red;
+}

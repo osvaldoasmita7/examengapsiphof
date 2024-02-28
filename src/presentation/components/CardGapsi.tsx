@@ -1,6 +1,6 @@
 import { ReactNode, useCallback, useEffect, useState } from "react";
 import { LogoImage } from "./LogoImage";
-import { ButtonDropDown } from "./ButtonDropDown";
+import { ButtonDropDown } from "./ButtonDropDown/ButtonDropDown";
 import { getVersionUseCase } from "../../core";
 
 interface Props {
@@ -18,21 +18,25 @@ export const CardGapsi = ({ children, title, titlePage }: Props) => {
     getVersion();
   }, [getVersion]);
   return (
-    <div className="row mt-5">
+    <div className="row mt-5 	fade-in">
       <div className="col-11 col-md-8 col-md-10 col-lg-5 mx-auto">
-        <div className="gapsy">
-          <div className="card gapsy">
-            <div className="header ps-4 py-3 row">
-              <div className="col-11">
-                <h3>{titlePage}</h3>
-              </div>
-              <div className="col-1">
-                <ButtonDropDown></ButtonDropDown>
+        <div className="gapsi">
+          <div className="card gapsi">
+            <div className="header ps-4 py-3 col-12">
+              <div className="row">
+                <div className="col-11">
+                  <h3 className="color-gray motion-safe:animate-spin">
+                    {titlePage}
+                  </h3>
+                </div>
+                <div className="col-1">
+                  <ButtonDropDown></ButtonDropDown>
+                </div>
               </div>
             </div>
             <div className="px-2">
               <div className="body py-4">
-                <div className="col-12 text-center">
+                <div className="col-12 text-center animate-pulse">
                   <LogoImage />
                   <h3 className="pt-4 pb-4">{title}</h3>
                 </div>
